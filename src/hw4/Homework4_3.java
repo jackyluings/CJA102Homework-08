@@ -13,30 +13,58 @@ public class Homework4_3 {
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("輸入查詢年份?");
-		int year = sc.nextInt();
+		int getYear = sc.nextInt();
 		System.out.println("輸入查詢月份?");
-		int month = sc.nextInt();
+		int getMonth = sc.nextInt();
 		System.out.println("輸入查詢日?");
-		int day = sc.nextInt();
-
+		int getDay = sc.nextInt();
+		int month = 0;
+		int day = 0;
+		int year = 0;
 		int days1[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		int days2[] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		if (getMonth != 2) {
+			if (getDay > days1[getMonth - 1] || getDay < 0) {
+				System.out.print("輸入的日期錯誤");
+			} else {
+				day = getDay;
+				month = getMonth;
+				year = getYear;
+			}
+		}
+		if (getMonth == 2) {
+			if (getDay > 29) {
+				System.out.print("輸入的日期錯誤");
+			} else {
+				month = getMonth;
+				day = getDay;
+				year = getYear;
+			}
+
+		}
+
 		// year%4=0 and year%100!=0, year%400=0
 		int sum1 = 0;
 		int sum2 = 0;
-		System.out.print("總共 ");
-		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+
+		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0 && day > 0) {
 			for (int i = 0; i < month - 1; i++) {
 				sum1 = sum1 + days2[i];
 			}
+			System.out.print("輸入的日期為該年第");
 			System.out.print(sum1 + day);
-		} else {
+			System.out.print(" 天。");
+		} else if (day > 28 && month==2) {
+			System.out.print("此年二月只有28天");
+		} else if (day > 0) { 
 			for (int j = 0; j < month - 1; j++) {
 				sum2 = sum2 + days1[j];
 			}
+			System.out.print("輸入的日期為該年第");
 			System.out.print(sum2 + day);
+			System.out.print("天。");
 		}
-		System.out.print(" 天。");
 
 	}
+
 }
