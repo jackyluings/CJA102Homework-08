@@ -12,7 +12,7 @@ public class Homework5_2 {
 
 	}
 
-	public static void randAvg() {
+	static void randAvg() {
 
 		int sum = 0;
 		for (int i = 0; i < 10; i++) {
