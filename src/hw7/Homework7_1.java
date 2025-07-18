@@ -18,11 +18,11 @@ public class Homework7_1 {
 			int count = 0;
 			while (br1.read() != -1) {
 				count++;
-			} // 算字元
+			} // 算字元 char
 			int count2 = 0;
 			while ((br2.readLine()) != null) {
 				count2++;
-			} // 算行數
+			} // 算行數 str
 
 			p("檔案共有" + f1.length() + "位元");
 			p("檔案共有" + count + "字元");
